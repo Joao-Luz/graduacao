@@ -1,0 +1,6 @@
+# Arquivos compilados
+build/
+vsh
+
+# Configurações do vscode
+.vscode

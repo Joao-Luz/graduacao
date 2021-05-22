@@ -1,0 +1,11 @@
+@font-face {
+    font-family: upheave;
+    src: url('./src/assets/fonts/upheave.otf');
+}
+
+#upheave {
+    font-family: upheave;
+    position: absolute;
+    left: -1000px;
+    visibility: hidden;
+}

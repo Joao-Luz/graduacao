@@ -1,0 +1,7 @@
+main
+input/
+output/
+*.zip
+*.hi
+*.o
+*.txt

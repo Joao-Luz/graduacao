@@ -1,0 +1,7 @@
+*.txt
+bin/
+*.o
+*.zip
+*.csv
+*.class
+

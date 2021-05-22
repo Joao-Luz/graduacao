@@ -1,0 +1,26 @@
+exemplo
+
+R1 0 6 28.6k
+
+Q1 6 6 5 TN
+Q2 3 6 5 TN
+Q3 7 1 3 TN
+Q4 8 2 3 TN
+Q5 7 7 4 TP
+Q6 8 7 4 TP
+
+VP 4 0 DC  15  
+VN 5 0 DC -15
+
+Vd1 1 0 SIN(0  .5m 1000 0 0 90)
+Vd2 2 0 SIN(0 -.5m 1000 0 0 90)
+.tran 0.001m .01 0.002m  uic
+
+*Vd1 1   0 AC .05m
+*vd2 2   0 AC -.05m
+*.ac dec 3000 .01 200000
+
+
+.MODEL TN NPN(IS=1.8F NF=1 BF=100 VAF=100 )
+.MODEL TP PNP(IS=1.8F BF=100 NF=0.9872 VAF=100 )
+

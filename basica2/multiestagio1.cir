@@ -1,0 +1,30 @@
+pagina 523
+RB 0 9      28.6k
+Q9 9 9 5    TN
+Q3 6 9 5    TN
+Q1 7 1 6    TN
+Q2 8 2 6    TN
+R1 4 7      20k
+R2 4 8      20k
+Q4 4 7 10   TN
+Q5 11 8 10  TN
+Q6 10 9 5   TN4
+R3 4 11     3k
+Q7 13 11 12 TP
+R4 4 12     2.3k
+R5 13 5     15.7k
+Q8 4 13 3   TN
+R6 3 5      3k
+VP	 4	0	DC	 15
+VN	 5	0	DC	-15
+Vd1     1   0 SIN(0 .5m 1000 0 0 90)
+Vd2     2   0 SIN(0 -.5m 1000 0 0 90)
+.tran 0.001m  .01 uic
+*Vd1    1   0 AC .05m
+*vd2    2   0 AC -.05m
+*ac dec 3000 .01 200000
+.MODEL TN NPN(IS=1.8F NF=1 BF=100 VAF=100 )
+.MODEL TP PNP(IS=1.8F BF=100 NF=0.9872 VAF=100 )
+.MODEL TN4 NPN(IS=7.2F NF=1 BF=100 VAF=100 )
+
+

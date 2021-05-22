@@ -1,0 +1,73 @@
+Questao 4 P1 basica 2 2020/2
+* Circuito oscilador de onda quadrada
+xop1 1 2 3 4 5 6 7  LM741
+R1 6 3 10k
+R2 3 0 10k
+R3 2 6 10k
+c1 2 0 45.512n
+
+* Circuito integrador
+xop2 1 8 0 4 5 9 7 LM741
+R4 6 8 10k
+* R5 0 8 12k
+c2 9 8 75n
+
+VP 7 0 DC 15
+VN 4 0 DC -15
+
+* Vs 6 0 pulse(-15 15 .5e-3 1e-6 1e-6 .5e-3 1.001e-3)
+
+.tran 1e-6 5e-3 uic
+
+**********************************
+.SUBCKT LM741    1 2 3 4 5 6 7
+*Circuito Interno do 741
+**********************************
+Q12    10 10  7 QPNP
+R5     10 11    39k
+Q11    11 11  4 QNPN
+Q10     9 11 17 QNPN
+Vic10  27  9    DC 0
+R4      17 4    5k
+Q9     21 31  7 QPNP
+VIC9   21 27    DC 0
+Q8     31 31  7 QPNP
+VIE8   31 19    DC 0
+Q1     19  3 12 QNPN
+Q2     19  2 13 QNPN
+Q3     14 27 12 QPNP
+Q4     15 27 13 QPNP
+Q5     14 16  5 QNPN
+Q6     15 16  1 QNPN
+Q7      7 14 16 QNPN
+Vie5    5 18    DC 0
+R1     18  4    1k
+Vie6    1 20    DC 0
+R2     20  4    1k
+R3     16  4    50k
+Q13B   22 10  7 QPNP13b
+Q16     7 15 23 QNPN
+R9     23  4    50k
+Q17    22 23 24 QNPN
+Cc     22    15 30p
+R8     24  4    100
+Q13A   29 10  7 QPnP13a
+Q19    29 29 30 QNPN
+Q18    29 30 25 QNPN
+Q23     4 22 25 QPNP
+R10    30 25    40k
+Q14     7 29 26 QNPNPot
+R6     26  6    27
+R7      6 28    27
+Q20     4 25 28 QPNPPot
+*
+.model QNPN NPN (IS=10.0E-15 VAF=1.25E02 VAR=1.25E+02 BF=156E+00  CJC=991.79E-15  CJE=1.02E-12)
+*
+.model QPNP PNP (IS = 10.0E-15  VAF= .5E+02 VAR=.5E+02 BF=90E+00  CJC = 3.84E-12  CJE = 1.45E-12)
+.model QPnP13a PNP (IS=2.5E-15    VAF= .5E+02 VAR=.5E+02 BF=90E+00  CJC = 3.84E-12  CJE = 1.45E-12)
+.model QPnP13b PNP (IS=7.5E-15    VAF= .5E02  VAR=.5E+02 BF=90E+00  CJC = 3.84E-12  CJE = 1.45E-12)
+.model QNPNPot NPN (IS=40.0E-15 VAF=1.25E02 VAR=1.25E+02 BF=156E+00  CJC=991.79E-15 CJE=1.02E-12)
+.model QPNPPot PNP (IS=40.0E-15  VAF= .5E+02 VAR=.5E+02 BF=90E+00  CJC = 3.84E-12  CJE = 1.45E-12)
+.ENDS
+
+
